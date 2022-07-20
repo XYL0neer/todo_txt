@@ -2,34 +2,45 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:todo_txt/todo_txt.dart';
 
+const path = "C:\\Users\\Adrian\\Projects\\todo_txt\\test\\resources\\todo.txt";
+
 void main() {
-  test('isPriorityString validPrioString returnTrue', () {
-    var prioString = '(A)';
-    expect(Todo.isPriorityString(prioString), true);
+  test('Try create a new TodoTxt file', () {
+    var tasks = [Task(completed: false, title: 'Task 1')];
+
+    var todo = TodoTxt.create(tasks: tasks, path: path);
+
+    expect(todo.tasks, tasks);
+    expect(todo.path, path);
   });
 
-  test('isPriorityString invalidPrioString returnFalse', () {
-    var prioString = '(a)';
-    expect(Todo.isPriorityString(prioString), false);
+  test('Try create a new TodoTxt file without .txt ending', () {
+    var tasks = [Task(completed: false, title: 'Task 1')];
+
+    expect(
+        () => TodoTxt.create(
+            tasks: tasks,
+            path:
+                "C:\\Users\\Adrian\\Projects\\todo_txt\\test\\resources\\todo.csv"),
+        throwsA(isA<FormatException>()));
   });
 
-  test('isDate validDate returnTrue', () {
-    var dateString = '1999-03-22';
-    expect(Todo.isDateString(dateString), true);
+  test('Try to write new TodoTxt', () {
+    var tasks = [Task(completed: false, title: 'Task 1')];
+
+    var todo = TodoTxt.create(tasks: tasks, path: path);
+
+    expect(todo.tasks, tasks);
+    expect(todo.path, path);
   });
 
-  test('isDate swappedDayMonth returnFalse', () {
-    var dateString = '1999-22-03';
-    expect(Todo.isDateString(dateString), false);
-  });
+  test('read from file', () {
+    var tasks = [Task(completed: false, title: 'Task 1')];
 
-  test('isDate 2BigValueForDay returnFalse', () {
-    var dateString = '1999-03-33';
-    expect(Todo.isDateString(dateString), false);
-  });
+    var todo = TodoTxt.readFromFile(path);
 
-  test('isDate 2BigValueForMonth returnFalse', () {
-    var dateString = '1999-13-22';
-    expect(Todo.isDateString(dateString), false);
+    expect(todo.path, path);
+    expect(todo.tasks.length, tasks.length);
+    expect(todo.tasks[0].title, 'Task 1');
   });
 }
