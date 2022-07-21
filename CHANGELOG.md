@@ -1,3 +1,3 @@
 ## 0.0.1
 
-* TODO: Describe initial release.
+* Initial alpha release, probably with many bugs and problems 🪲🪲🪲

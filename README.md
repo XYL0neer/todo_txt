@@ -1,3 +1,4 @@
+![GitHub](https://img.shields.io/github/license/xyl0neer/todo_txt?style=flat-square)
 # todo_txt
 | 🚧🚧🚧 This package is still under development. Use at your own risk. Breaking changes can occur frequently! 🚧🚧🚧
 
