@@ -1,3 +1,5 @@
+import 'dart:io';
+
 RegExp dateRegex =
     RegExp(r'(\d{4})[\-](0?[1-9]|1[012])[\-](0?[1-9]|[12][0-9]|3[01])$');
 
@@ -18,3 +20,6 @@ String paramsToString(Map params) {
   params.forEach((key, value) => strParams += ' $key:$value');
   return strParams.trim();
 }
+
+String pathToPlatformPath(String path) =>
+    path.replaceAll(RegExp(r'\\|\/'), Platform.pathSeparator);

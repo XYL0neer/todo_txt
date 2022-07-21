@@ -1,39 +1,39 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# todo_txt
+| 🚧🚧🚧 This package is still under development. Use at your own risk. Breaking changes can occur frequently! 🚧🚧🚧
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+This package implements the todo.txt standard defined [here](https://github.com/todotxt/todo.txt). \
+The main purpose is to store todos in a simple `*.txt` file, so the user has full control on his Todos.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+- read Tasks from an existing file
+- create tasks for a new file
+- write your tasks to the specified file
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+### Read from an existing `*.txt` file
 
 ```dart
-const like = 'sample';
+var path = "/home/example/Documents/todo.txt";
+var todoTxt = TodoTxt.readFromFile(path: path);
+```
+
+### Save your changes
+
+```dart
+todoTxt.writeToFile();
+```
+
+### Create a new `*.txt` file with todos
+
+```dart
+var newTodoFile = "/home/example/Documents/another_todo.txt"
+var tasks = [Task(completed: false, title: "Try this awesome package!")];
+var todoTxt = TodoTxt.create(tasks: tasks, path: path);
 ```
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+For more information on todo.txt check their documentation on [GitHub](https://github.com/todotxt/todo.txt) or website [todo.txt](http://todotxt.org/)

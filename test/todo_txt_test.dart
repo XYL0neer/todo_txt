@@ -37,7 +37,7 @@ void main() {
   test('read from file', () {
     var tasks = [Task(completed: false, title: 'Task 1')];
 
-    var todo = TodoTxt.readFromFile(path);
+    var todo = TodoTxt.readFromFile(path: path);
 
     expect(todo.path, path);
     expect(todo.tasks.length, tasks.length);

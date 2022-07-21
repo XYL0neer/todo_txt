@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:todo_txt/helpers.dart';
 
@@ -31,4 +33,18 @@ void main() {
     var dateString = '1999-13-22';
     expect(isDateString(dateString), false);
   });
+
+  test('Linux path seperator to Windows path Seperator', () {
+    var path = 'C:/this/is/a/path.txt';
+    var expected = 'C:\\this\\is\\a\\path.txt';
+
+    expect(pathToPlatformPath(path), expected);
+  }, onPlatform: {'!windows || browser': const Skip('Windows only test')});
+
+  test('Windows path seperator to Posix path Seperator', () {
+    var path = 'C:\\this\\is\\a\\path.txt';
+    var expected = 'C:/this/is/a/path.txt';
+
+    expect(pathToPlatformPath(path), expected);
+  }, onPlatform: {'windows || browser': const Skip('Not windows only test')});
 }
