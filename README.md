@@ -1,4 +1,6 @@
 ![GitHub](https://img.shields.io/github/license/xyl0neer/todo_txt?style=flat-square)
+[![](http://flutter-badge.zaynjarvis.com/version/todo_txt)](https://pub.dartlang.org/packages/todo_txt)
+[![](http://flutter-badge.zaynjarvis.com/score/todo_txt)](https://pub.dartlang.org/packages/todo_txt)
 # todo_txt
 | 🚧🚧🚧 This package is still under development. Use at your own risk. Breaking changes can occur frequently! 🚧🚧🚧
 
