@@ -33,7 +33,7 @@ todoTxt.writeToFile();
 
 ```dart
 var newTodoFile = "/home/example/Documents/another_todo.txt"
-var tasks = [Task(completed: false, title: "Try this awesome package!")];
+var tasks = [Task("Try this awesome package!", completed: false)];
 var todoTxt = TodoTxt.create(tasks: tasks, path: path);
 ```
 
