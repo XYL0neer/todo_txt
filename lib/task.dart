@@ -10,9 +10,9 @@ class Task {
   List<String> context;
   Map<String, String> metadata;
 
-  Task({
-    required this.completed,
-    required this.title,
+  Task(
+    this.title, {
+    this.completed = false,
     this.priority,
     this.completionDate,
     this.creationDate,
@@ -74,9 +74,8 @@ class Task {
 
     title = title.trim();
 
-    return Task(
+    return Task(title,
         completed: completed,
-        title: title,
         priority: priority,
         creationDate: creationDate,
         completionDate: completionDate,

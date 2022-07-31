@@ -1,12 +1,10 @@
 name: todo_txt
 description: Implementation of todo.txt standard
-version: 0.0.1
+version: 0.0.2
 repository: https://github.com/XYL0neer/todo_txt
 
 environment:
   sdk: ">=2.17.6 <3.0.0"
-
-dependencies:
 
 dev_dependencies:
   flutter_lints: ^2.0.0
