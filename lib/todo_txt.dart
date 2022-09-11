@@ -4,6 +4,7 @@ import 'dart:io';
 
 import 'package:todo_txt/helpers.dart';
 import 'package:todo_txt/task.dart';
+
 export 'package:todo_txt/task.dart';
 
 class TodoTxt {
@@ -21,7 +22,11 @@ class TodoTxt {
     try {
       var file = File(osPath);
       var lines = file.readAsLinesSync();
-      var tasks = lines.map((line) => Task.fromText(line)).toList();
+      List<Task> tasks = List<Task>.empty(growable: true);
+      for (var line in lines) {
+        final trimmedLine = line.trim();
+        if (trimmedLine.isNotEmpty) tasks.add(Task.fromText(trimmedLine));
+      }
       return TodoTxt._(path: osPath, tasks: tasks);
     } on FileSystemException catch (ex) {
       print(ex.message);
@@ -51,7 +56,7 @@ class TodoTxt {
     try {
       var file = File(path);
       var lines = tasks.map((task) => task.toText());
-      file.writeAsStringSync(lines.join('\n'), flush: true);
+      file.writeAsStringSync('${lines.join('\n')}\n', flush: true);
     } on FileSystemException catch (ex) {
       print(ex);
       rethrow;

@@ -84,6 +84,28 @@ class Task {
         metadata: params);
   }
 
+  Task copyWith({
+    String? title,
+    bool? completed,
+    int? priority,
+    DateTime? creationDate,
+    DateTime? completionDate,
+    List<String>? project,
+    List<String>? context,
+    Map<String, String>? metadata,
+  }) {
+    return Task(
+      title ?? this.title,
+      completed: completed ?? this.completed,
+      priority: priority ?? this.priority,
+      creationDate: creationDate ?? this.creationDate,
+      completionDate: completionDate ?? this.completionDate,
+      context: context ?? this.context,
+      project: project ?? this.project,
+      metadata: metadata ?? this.metadata,
+    );
+  }
+
   String toText() {
     var text = '';
 

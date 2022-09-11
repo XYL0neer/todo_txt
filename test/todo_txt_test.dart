@@ -2,10 +2,10 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:test/test.dart';
-
 import 'package:todo_txt/todo_txt.dart';
 
-const path = "C:\\Users\\Adrian\\Projects\\todo_txt\\test\\resources\\todo.txt";
+const windowsPath = ".\\test\\resources\\todo.txt";
+const path = "./test/resources/todo.txt";
 
 void main() {
   test('Try create a new TodoTxt file', () {
