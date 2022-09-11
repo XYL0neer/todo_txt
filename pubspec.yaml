@@ -1,6 +1,6 @@
 name: todo_txt
 description: Implementation of todo.txt standard
-version: 0.0.2
+version: 0.0.3
 repository: https://github.com/XYL0neer/todo_txt
 
 environment:
